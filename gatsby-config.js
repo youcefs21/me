@@ -1,6 +1,5 @@
-import type { GatsbyConfig } from "gatsby"
 
-const config: GatsbyConfig = {
+const config = {
   siteMetadata: {
     title: `portfolio`,
     siteUrl: `https://www.yourdomain.tld`,
@@ -8,4 +7,3 @@ const config: GatsbyConfig = {
   plugins: [],
 }
 
-export default config
