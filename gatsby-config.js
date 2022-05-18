@@ -1,9 +1,11 @@
 
-const config = {
-  siteMetadata: {
-    title: `portfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
-  },
-  plugins: [],
-}
 
+module.exports = {
+  siteMetadata: {
+    title: "portfolio",
+  },
+  plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+  ],
+};

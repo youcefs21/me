@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText
-} from './layout.module.css'
+import { container } from './layout.module.css'
+import { heading } from './layout.module.css'
+import { navLinks } from './layout.module.css'
+import { navLinkItem } from './layout.module.css'
+import { navLinkText } from './layout.module.css'
 
 
 type LayoutProps = {

@@ -1,13 +1,19 @@
 import * as React from 'react'
 import Layout from "../components/layout";
-import {ItineraryBox} from "../components/ItineraryBox";
+import {StaticImage} from "gatsby-plugin-image";
+
 
 const IndexPage = () => {
   return (
-      <Layout pageTitle={"Home Page"}>
+      <Layout pageTitle={"Hi, My Name is Youcef"}>
         <div>
-          <p>My name is youcef,</p>
-          <ItineraryBox/>
+          <p>
+            I am software engineer who loves learning new things and exploring new technologies
+          </p>
+          <StaticImage
+            src={"../images/myIcon.png"}
+            alt={"Profile Picture"}
+          />
         </div>
       </Layout>
   )
