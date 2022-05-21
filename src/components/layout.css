@@ -13,7 +13,15 @@
     display: flex;
     list-style: none;
     padding-left: 0;
+    align-items: center;
 }
+
+.crop-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20%;
+}
+
 .nav-link-item {
     padding-right: 2rem;
 }

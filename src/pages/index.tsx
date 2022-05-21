@@ -10,10 +10,6 @@ const IndexPage = () => {
           <p>
             I am software engineer who loves learning new things and exploring new technologies
           </p>
-          <StaticImage
-            src={"../images/myIcon.png"}
-            alt={"Profile Picture"}
-          />
         </div>
       </Layout>
   )
