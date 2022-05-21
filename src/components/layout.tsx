@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import {StaticImage} from "gatsby-plugin-image";
-import './layout.css'
+import '../styles/layout.css'
 
 const NavItem = ({to, children}: { to: string, children: string | JSX.Element }) => {
   return (
@@ -37,16 +37,18 @@ const NavBar = () => {
 
 type LayoutProps = {
   pageTitle: string,
+  pageDesc: string,
   children: JSX.Element
 }
 
-const Layout = ({ pageTitle, children }: LayoutProps) => {
+const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
   return (
     <div className={"container"}>
       <title>{pageTitle}</title>
       <NavBar/>
       <main style={{padding: 20}}>
         <h1 className={"heading"}>{pageTitle}</h1>
+        <p className={"sub-heading"}>{pageDesc}</p>
         {children}
       </main>
     </div>

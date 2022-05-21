@@ -5,11 +5,11 @@ import {StaticImage} from "gatsby-plugin-image";
 
 const IndexPage = () => {
   return (
-      <Layout pageTitle={"Hi, My Name is Youcef"}>
+      <Layout
+        pageTitle={"Youcef"}
+        pageDesc={"I am software engineer who loves learning new things and exploring new technologies"}
+      >
         <div>
-          <p>
-            I am software engineer who loves learning new things and exploring new technologies
-          </p>
         </div>
       </Layout>
   )

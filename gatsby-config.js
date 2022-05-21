@@ -1,5 +1,4 @@
 
-
 module.exports = {
   siteMetadata: {
     title: "portfolio",
@@ -7,5 +6,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet"
   ],
 };

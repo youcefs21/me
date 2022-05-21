@@ -1,14 +1,28 @@
 .container {
     margin: auto;
-    color: #232129;
-    background-color: #f6f6f6;
+    color: #FFFFFF;
     padding: 20px;
     font-family: -apple-system, Roboto, sans-serif, serif;
 }
 
 .heading {
-    color: rebeccapurple;
+    font-family: 'IBM Plex Mono', monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 83px;
+    text-align: center;
 }
+
+.sub-heading {
+    font-family: 'Ubuntu Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -26,5 +40,5 @@
     padding-right: 2rem;
 }
 .nav-link-text {
-    color: black;
+    color: white;
 }

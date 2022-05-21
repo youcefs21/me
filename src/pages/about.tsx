@@ -4,10 +4,10 @@ import Layout from "../components/layout";
 
 const AboutPage = () => {
   return (
-    <Layout pageTitle={"About Me"}>
-      <div>
-        <p>Hi there! I'm the proud creator of this site</p>
-      </div>
+    <Layout pageTitle={"About Me"}
+    pageDesc={"Hi there! I'm the proud creator of this site"}
+    >
+    <p>stuff</p>
     </Layout>
   )
 }
