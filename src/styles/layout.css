@@ -19,7 +19,7 @@
     height: 100vh;
     content: "";
     /* you can control opacity of noise  */
-    opacity: .07;
+    opacity: .03;
     z-index: 1000;
     pointer-events: none;
     background: url(https://raw.githubusercontent.com/taimoorshahzada/Film-Grain-Noise-Effect-on-Background-in-Website-using-Pure-CSS/main/noise.gif) ;
