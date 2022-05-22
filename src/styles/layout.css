@@ -1,8 +1,28 @@
 .container {
     margin: auto;
     color: #FFFFFF;
-    padding: 20px;
-    font-family: -apple-system, Roboto, sans-serif, serif;
+    padding: 30px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 10vh 60vh 60vh;
+    align-items: center;
+}
+
+.noise::before{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    /* you can control opacity of noise  */
+    opacity: .07;
+    z-index: 1000;
+    pointer-events: none;
+    background: url(https://raw.githubusercontent.com/taimoorshahzada/Film-Grain-Noise-Effect-on-Background-in-Website-using-Pure-CSS/main/noise.gif) ;
 }
 
 .heading {
@@ -10,7 +30,6 @@
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
-    line-height: 83px;
     text-align: center;
 }
 
@@ -19,7 +38,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 30px;
     text-align: center;
 }
 

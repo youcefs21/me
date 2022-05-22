@@ -1,12 +1,11 @@
 import * as React from 'react'
 import Layout from "../components/layout";
+import ContactMe from "../components/contactPage";
 
 const AboutPage = () => {
   return (
-    <Layout pageTitle={"About Me"}
-    pageDesc={"Hi there! I'm the proud creator of this site"}
-    >
-    <p>stuff</p>
+    <Layout pageTitle={"Contact Me"} pageDesc={"Here is how you reach out to me"}>
+      <ContactMe/>
     </Layout>
   )
 }

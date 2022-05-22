@@ -28,7 +28,7 @@ const NavBar = () => {
           </div>
         </NavItem>
         <NavItem to={"/"}>Home</NavItem>
-        <NavItem to={"/about"}>About</NavItem>
+        <NavItem to={"/contact"}>Contact</NavItem>
       </ul>
     </nav>
   )
@@ -44,11 +44,14 @@ type LayoutProps = {
 const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
   return (
     <div className={"container"}>
+      <div className="noise"></div>
       <title>{pageTitle}</title>
-      <NavBar/>
-      <main style={{padding: 20}}>
-        <h1 className={"heading"}>{pageTitle}</h1>
-        <p className={"sub-heading"}>{pageDesc}</p>
+      <main className={"main"}>
+        <NavBar/>
+        <div>
+          <h1 className={"heading"}>{pageTitle}</h1>
+          <p className={"sub-heading"}>{pageDesc}</p>
+        </div>
         {children}
       </main>
     </div>
