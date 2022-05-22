@@ -1,6 +1,7 @@
 import * as React from 'react'
 import '../styles/layout.css'
 import NavBar from "./navigation";
+import Arrows from "./arrows";
 
 
 type LayoutProps = {
@@ -21,6 +22,7 @@ const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
             <h1 className={"heading"}>{pageTitle}</h1>
             <h2 className={"sub-heading"}>{pageDesc}</h2>
           </div>
+          <Arrows/>
         </div>
         {children}
       </main>

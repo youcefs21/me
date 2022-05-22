@@ -30,8 +30,9 @@
     display: grid;
     justify-content: center;
     align-content: center;
+    justify-items: center;
     grid-template-columns: minmax(min-content, 750px);
-    grid-template-rows: 60vh;
+    grid-template-rows: 60vh 10vh;
     margin-top: 15vh;
     margin-left: 20px;
     margin-right: 20px;

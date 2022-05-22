@@ -8,5 +8,5 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet"
   ],
-  pathPrefix: "/portfolio",
+  pathPrefix: "/me",
 };
