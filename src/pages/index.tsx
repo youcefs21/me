@@ -5,7 +5,9 @@ import Layout from "../components/layout";
 const IndexPage = () => {
   return (
       <Layout pageTitle={"Youcef"} pageDesc={"I am software engineer who loves learning new things and exploring new technologies"}>
-        <div>test</div>
+        <div>
+          test 2
+        </div>
       </Layout>
   )
 }

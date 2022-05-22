@@ -1,14 +1,16 @@
 .container {
-    margin: auto;
     color: #FFFFFF;
-    padding: 30px;
     font-family: 'Ubuntu Mono', monospace;
 }
 
 .main {
     display: grid;
     grid-template-rows: 10vh 60vh 60vh;
+    grid-template-columns: 25vw 50vw 20vw;
     align-items: center;
+    grid-template-areas:
+    "nav nav nav"
+    ". front .";
 }
 
 .noise::before{
@@ -18,11 +20,29 @@
     width: 100vw;
     height: 100vh;
     content: "";
-    /* you can control opacity of noise  */
-    opacity: .03;
+    opacity: .05;
     z-index: 1000;
     pointer-events: none;
-    background: url(https://raw.githubusercontent.com/taimoorshahzada/Film-Grain-Noise-Effect-on-Background-in-Website-using-Pure-CSS/main/noise.gif) ;
+    background: url(../images/noise.gif);
+}
+
+.front-page {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: minmax(min-content, 750px);
+    grid-template-rows: 60vh;
+    margin-top: 15vh;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.nav-bar {
+    grid-area: nav;
+    padding: 30px;
+/*    position: sticky;
+    top: 15px;*/
 }
 
 .heading {
@@ -37,26 +57,18 @@
     font-family: 'Ubuntu Mono', monospace;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    align-items: center;
-}
-
-.crop-img {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20%;
-}
-
-.nav-link-item {
-    padding-right: 2rem;
-}
-.nav-link-text {
-    color: white;
+@media (max-height: 479px) {
+    .heading {
+        font-size: 40px;
+    }
+    .sub-heading {
+        font-size: 20px;
+    }
+    .front-page {
+        margin-top: 0;
+    }
 }
