@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[650],{2724:function(e,t,o){o.r(t);var n=o(7294),r=o(6908);t.default=function(){return n.createElement(r.Z,{pageTitle:"Contact Me",pageDesc:"Here is how you reach out to me"},n.createElement("div",null))}}}]);
+//# sourceMappingURL=component---src-pages-contact-tsx-57812b00d41ec3214341.js.map
