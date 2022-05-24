@@ -42,8 +42,10 @@
 .nav-bar {
     grid-area: nav;
     padding: 30px;
-/*    position: sticky;
-    top: 0;*/
+    position: sticky;
+    top: 0;
+    background-color: #21212F;
+    z-index: 500;
 }
 
 .heading {
