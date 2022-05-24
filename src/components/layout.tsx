@@ -2,6 +2,7 @@ import * as React from 'react'
 import '../styles/layout.css'
 import NavBar from "./navigation";
 import Arrows from "./arrows";
+import Terminal from "./terminal";
 
 
 type LayoutProps = {
@@ -15,8 +16,8 @@ const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
     <div className={"container"}>
       <div className={"noise"}/>
       <title>{pageTitle}</title>
-      <NavBar className={"nav-bar"}/>
       <main>
+        <NavBar className={"nav-bar"}/>
         <div className={"front-page"}>
           <div>
             <h1 className={"heading"}>{pageTitle}</h1>
@@ -24,7 +25,9 @@ const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
           </div>
           <Arrows/>
         </div>
+        <Terminal/>
         {children}
+        <div id={'pageBottom'}></div>
       </main>
     </div>
   )

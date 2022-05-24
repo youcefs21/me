@@ -32,7 +32,7 @@
     align-content: center;
     justify-items: center;
     grid-template-columns: minmax(min-content, 750px);
-    grid-template-rows: 60vh 10vh;
+    grid-template-rows: 55vh 20vh;
     margin-top: 15vh;
     margin-left: 20px;
     margin-right: 20px;
@@ -43,7 +43,7 @@
     grid-area: nav;
     padding: 30px;
 /*    position: sticky;
-    top: 15px;*/
+    top: 0;*/
 }
 
 .heading {

@@ -1,0 +1,22 @@
+.box {
+    background-color: black;
+    width: 90vw;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    margin: 0 auto 5vh;
+}
+
+p {
+    padding: 40px;
+}
+
+.cursor {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
