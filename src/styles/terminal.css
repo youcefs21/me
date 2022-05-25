@@ -5,17 +5,22 @@
     position: relative;
     overflow: hidden;
     border-radius: 25px;
-    margin: 0 auto 5vh;
+    margin: 10vh auto 5vh;
 }
 
-p {
+.terminal-text {
     padding: 40px;
-    font-size: 2vw;
+    font-size: medium;
 }
 
-.cursor {
+.terminal-text::before {
+    content: "me@youcefs21.github.io:~$ ";
+}
+
+.terminal-cursor {
     animation: blinker 1s linear infinite;
 }
+
 @keyframes blinker {
     50% {
         opacity: 0;

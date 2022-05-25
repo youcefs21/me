@@ -17,6 +17,7 @@ const NavBar = ({className}: {className: string}) => {
   return (
     <nav className={className}>
       <ul className={"nav-links"}>
+        <NavItem to={"/"}>Home</NavItem>
         <NavItem to={"/"}>
           <div className="crop-img">
             <StaticImage
@@ -27,7 +28,6 @@ const NavBar = ({className}: {className: string}) => {
             />
           </div>
         </NavItem>
-        <NavItem to={"/"}>Home</NavItem>
         <NavItem to={"/contact"}>Contact</NavItem>
       </ul>
     </nav>

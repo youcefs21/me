@@ -4,9 +4,9 @@ import '../styles/terminal.css'
 const Terminal = () => {
   return (
     <div className={"box"}>
-      <p>
-        me@youcefs21.github.io:~$ <b className="cursor" id="cursor">█</b>
-      </p>
+      <div className="terminal-text">
+        <b className="terminal-cursor">█</b>
+      </div>
     </div>
   )
 }

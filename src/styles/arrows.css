@@ -9,10 +9,35 @@
     }
 }
 
+@keyframes fadeIn {
+    0%, 20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    } 
+}
+
 #BotArrow {
     animation: 2s ease-out 0s 1 comeDown;
 }
 
 #TopArrow {
     animation: 3s ease-out 0s 1 comeDown;
+}
+
+.arrows-button {
+    background: transparent;
+    border: none;
+    margin: 30px;
+}
+
+.arrows-button:hover {
+    cursor: pointer;
+}
+
+.arrow-text {
+    color: white;
+    font-size: large;
+    animation: 6s ease-out 0s 1 fadeIn;
 }
