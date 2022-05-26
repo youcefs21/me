@@ -8,6 +8,14 @@
     margin: 10vh auto 5vh;
 }
 
+.terminal-input {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
+}
+
 .terminal-text {
     padding: 40px;
     font-size: medium;
