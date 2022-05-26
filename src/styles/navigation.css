@@ -4,6 +4,7 @@
     list-style: none;
     align-items: center;
     justify-content: space-evenly;
+    padding-left: 30px;
 }
 
 .crop-img {

@@ -21,9 +21,9 @@
     font-size: medium;
 }
 
-.terminal-text::before {
+/* .terminal-text::before {
     content: "me@youcefs21.github.io:~$ ";
-}
+} */
 
 .terminal-cursor {
     animation: blinker 1s linear infinite;

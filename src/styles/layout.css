@@ -2,16 +2,6 @@
     color: #FFFFFF;
 }
 
-.main {
-    display: grid;
-    grid-template-rows: 10vh 60vh 60vh;
-    grid-template-columns: 25vw 50vw 20vw;
-    align-items: center;
-    grid-template-areas:
-    "nav nav nav"
-    ". front .";
-}
-
 .noise {
     position: fixed;
     top: 0;
@@ -55,6 +45,7 @@
     font-weight: 400;
     font-size: 25px;
     text-align: center;
+    margin: 40px;
 }
 
 @media (max-height: 479px) {
