@@ -9,6 +9,9 @@ type terminalState = {
 }
 
 class Terminal extends React.Component<{},terminalState> {
+
+  nameInput: HTMLInputElement  | null;
+
   constructor(props: any) {
     super(props)
     this.state = {
@@ -16,34 +19,39 @@ class Terminal extends React.Component<{},terminalState> {
       consoleLog: [],
       prefix: "me@youcefs21.github.io:~$ "
     };
+    this.nameInput = null;
   }
 
   render() {
-
-
-
     return (
-      <div className={"box"}>
+      <div className={"box"}  onClickCapture={evt => this.focusInput(evt)}>
         <form onSubmit={evt => this.processSubmission(evt)}>
-        <input 
-          value={""} 
-          className="terminal-input" 
-          onKeyDown={evt => this.processSpecialInput(evt)}
-          onChange={evt => this.processCharInput(evt)}
-        />
+          <input 
+            value={""} 
+            className="terminal-input"
+            ref={(input) => { this.nameInput = input; }} 
+            onKeyDown={evt => this.processSpecialInput(evt)}
+            onChange={evt => this.processCharInput(evt)}
+          />
         </form>
         <div className="terminal-text">
           {
             this.state.consoleLog.map(
               function (value) {
-                return <p>{value}</p>;
+                return <p style={{margin:"0 0 10px"}}>{value}</p>;
               }
             )
           }
-          {this.state.prefix}{this.state.inputValue}<b className="terminal-cursor">█</b>
+          <b>{this.state.prefix}</b>{this.state.inputValue}<b className="terminal-cursor">█</b>
         </div>
       </div>
     )
+  }
+
+  focusInput(evt: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    if (this.nameInput != null){
+      this.nameInput.focus();
+    }
   }
 
   processSpecialInput(evt: React.KeyboardEvent<HTMLDivElement>) {
@@ -52,7 +60,12 @@ class Terminal extends React.Component<{},terminalState> {
     if (key === "Backspace"){
       val = val.slice(0, -1);
     }
-    console.log(key)
+    if (key === "l" && evt.ctrlKey){
+      this.setState({
+        consoleLog: []
+      })
+      evt.preventDefault();
+    }
     this.setState({inputValue: val})
   }
 

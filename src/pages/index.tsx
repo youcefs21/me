@@ -10,7 +10,7 @@ const IndexPage = () => {
         <div>
           <Helmet>
             <title>Youcef</title>
-            <meta name="description" content="portfolio page" />
+            <meta name="description" content="A Portfolio Page" />
           </Helmet>
           <Terminal/>
         </div>

@@ -16,18 +16,18 @@ const NavItem = ({to, children}: { to: string, children: string | JSX.Element })
 const NavBar = ({className}: {className: string}) => {
   return (
     <nav className={className}>
+    <Link to={"/"} className={"nav-link-text"}>
+        <div className="crop-img">
+          <StaticImage
+            src={"../images/myIcon.png"}
+            alt={"Profile Picture"}
+            width={42}
+            height={42}
+          />
+        </div>
+      </Link>
       <ul className={"nav-links"}>
         <NavItem to={"/"}>Home</NavItem>
-        <NavItem to={"/"}>
-          <div className="crop-img">
-            <StaticImage
-              src={"../images/myIcon.png"}
-              alt={"Profile Picture"}
-              width={42}
-              height={42}
-            />
-          </div>
-        </NavItem>
         <NavItem to={"/contact"}>Contact</NavItem>
       </ul>
     </nav>
