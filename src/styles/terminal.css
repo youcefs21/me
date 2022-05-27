@@ -22,6 +22,15 @@
     font-size: medium;
 }
 
+.command {
+    color: #73ABAD;
+    text-shadow: 0 0 5px #73ABAD; 
+  }
+
+.terminal-prefix {
+    color: #519975;
+}
+
 
 .terminal-cursor {
     animation: blinker 1s linear infinite;

@@ -4,7 +4,7 @@ import '../styles/terminal.css'
 
 type terminalState = { 
   inputValue: string,
-  consoleLog: string[],
+  consoleLog: JSX.Element[],
   prefix: string
 }
 
@@ -36,13 +36,15 @@ class Terminal extends React.Component<{},terminalState> {
         </form>
         <div className="terminal-text">
           {
+            // I have no idea why I need map for this to work by
+            // ¯\_(ツ)_/¯
             this.state.consoleLog.map(
               function (value) {
-                return <p style={{margin:"0 0 10px"}}>{value}</p>;
+                return value;
               }
             )
           }
-          <b>{this.state.prefix}</b>{this.state.inputValue}<b className="terminal-cursor">█</b>
+          <b className="terminal-prefix">{this.state.prefix}</b>{this.state.inputValue}<b className="terminal-cursor">█</b>
         </div>
       </div>
     )
@@ -76,8 +78,16 @@ class Terminal extends React.Component<{},terminalState> {
 
   processSubmission(evt: React.FormEvent<HTMLFormElement>) {
     this.state.consoleLog.push(
-      "me@youcefs21.github.io:~$ " + this.state.inputValue,
-      "<insert cool response to the `" + this.state.inputValue + "` command here>"
+      (
+        <p>
+          <b className="terminal-prefix">me@youcefs21.github.io:~$ </b> {this.state.inputValue}
+        </p>
+      ),
+      (
+        <p>
+        <span className="command">'{this.state.inputValue.split(" ")[0]}'</span> command not found
+        </p>
+      )
     )
     
     this.setState({
