@@ -1,5 +1,6 @@
 import * as React from "react";
 import '../styles/terminal.css'
+import {BannerJSX} from "./commands/banner";
 
 
 type terminalState = { 
@@ -16,7 +17,9 @@ class Terminal extends React.Component<{},terminalState> {
     super(props)
     this.state = {
       inputValue: '',
-      consoleLog: [],
+      consoleLog: [
+        <BannerJSX/>
+      ],
       prefix: "me@youcefs21.github.io:~$ "
     };
     this.nameInput = null;
@@ -25,15 +28,6 @@ class Terminal extends React.Component<{},terminalState> {
   render() {
     return (
       <div className={"box"}  onClickCapture={evt => this.focusInput(evt)}>
-        <form onSubmit={evt => this.processSubmission(evt)}>
-          <input 
-            value={""} 
-            className="terminal-input"
-            ref={(input) => { this.nameInput = input; }} 
-            onKeyDown={evt => this.processSpecialInput(evt)}
-            onChange={evt => this.processCharInput(evt)}
-          />
-        </form>
         <div className="terminal-text">
           {
             // I have no idea why I need map for this to work by
@@ -46,6 +40,15 @@ class Terminal extends React.Component<{},terminalState> {
           }
           <b className="terminal-prefix">{this.state.prefix}</b>{this.state.inputValue}<b className="terminal-cursor">█</b>
         </div>
+        <form onSubmit={evt => this.processSubmission(evt)}>
+          <input
+            value={""}
+            className="terminal-input"
+            ref={(input) => { this.nameInput = input; }}
+            onKeyDown={evt => this.processSpecialInput(evt)}
+            onChange={evt => this.processCharInput(evt)}
+          />
+        </form>
       </div>
     )
   }
@@ -58,7 +61,7 @@ class Terminal extends React.Component<{},terminalState> {
 
   processSpecialInput(evt: React.KeyboardEvent<HTMLDivElement>) {
     const key = evt.key;
-    var val = this.state.inputValue
+    let val = this.state.inputValue
     if (key === "Backspace"){
       val = val.slice(0, -1);
     }
@@ -85,7 +88,7 @@ class Terminal extends React.Component<{},terminalState> {
       ),
       (
         <p>
-        <span className="command">'{this.state.inputValue.split(" ")[0]}'</span> command not found
+          <span className="command">'{this.state.inputValue.split(" ")[0]}'</span> command not found
         </p>
       )
     )

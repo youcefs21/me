@@ -10,11 +10,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
+        name: `Youcef's portfolio website`,
+        short_name: `Youcef`,
         start_url: `/`,
         background_color: `#21212F`,
-        theme_color: `#a2466c`,
+        theme_color: `#21212F`,
         display: `standalone`,
         icon: 'src/images/myIcon.png'
       },
