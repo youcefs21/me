@@ -6,7 +6,8 @@ import {BannerJSX, CommandNotFound, HelpCommand} from "./commands";
 type terminalState = { 
   inputValue: string,
   consoleLog: JSX.Element[],
-  prefix: string
+  prefix: string,
+  commandHistory: (string | null)[]
 }
 
 class Terminal extends React.Component<{},terminalState> {
@@ -20,7 +21,10 @@ class Terminal extends React.Component<{},terminalState> {
       consoleLog: [
         <BannerJSX key={"InitialBanner"}/>
       ],
-      prefix: "me@youcefs21.github.io:~$ "
+      prefix: "me@youcefs21.github.io:~$ ",
+      commandHistory: [
+        null
+      ]
     };
     this.nameInput = null;
   }
@@ -63,7 +67,7 @@ class Terminal extends React.Component<{},terminalState> {
 
   processSpecialInput(evt: React.KeyboardEvent<HTMLDivElement>) {
     const key = evt.key;
-    let val = this.state.inputValue
+    let val = this.state.inputValue;
     if (key === "Backspace"){
       val = val.slice(0, -1);
     }
@@ -73,19 +77,18 @@ class Terminal extends React.Component<{},terminalState> {
       })
       evt.preventDefault();
     }
-/*    else if (key === "ArrowUp" && this.state.inputHistoryB.length > 0) {
-      this.state.inputHistoryF.push(this.state.inputValue)
-      const newInput = this.state.inputHistoryB.pop()!
-      this.setState({
-        inputHistoryF: this.state.inputHistoryF,
-        inputValue: newInput,
-        inputHistoryB: this.state.inputHistoryB
-      })
+    else if (key === "ArrowUp" && this.state.commandHistory.at(-1) != null) {
+      this.state.commandHistory.unshift(val);
+      val = this.state.commandHistory.pop()!;
     }
-    else if (key === "ArrowDown") {
-
-    }*/
-    this.setState({inputValue: val})
+    else if (key === "ArrowDown" && this.state.commandHistory[0] != null && val!='') {
+      this.state.commandHistory.push(val);
+      val = this.state.commandHistory.shift()!;
+    }
+    this.setState({
+      inputValue: val,
+      commandHistory: this.state.commandHistory
+    });
   }
 
   processCharInput(evt: React.ChangeEvent<HTMLInputElement>) {
@@ -114,10 +117,12 @@ class Terminal extends React.Component<{},terminalState> {
     }
 
     this.state.consoleLog.push(commandResponse)
+    this.state.commandHistory.push(this.state.inputValue)
 
     this.setState({
       inputValue: "",
-      consoleLog: this.state.consoleLog
+      consoleLog: this.state.consoleLog,
+      commandHistory: this.state.commandHistory
     });
     evt.preventDefault();
   }
