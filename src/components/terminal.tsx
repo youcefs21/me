@@ -18,7 +18,7 @@ class Terminal extends React.Component<{},terminalState> {
     this.state = {
       inputValue: '',
       consoleLog: [
-        <BannerJSX/>
+        <BannerJSX key={"InitialBanner"}/>
       ],
       prefix: "me@youcefs21.github.io:~$ "
     };
@@ -67,12 +67,24 @@ class Terminal extends React.Component<{},terminalState> {
     if (key === "Backspace"){
       val = val.slice(0, -1);
     }
-    if (key === "l" && evt.ctrlKey){
+    else if (key === "l" && evt.ctrlKey){
       this.setState({
         consoleLog: []
       })
       evt.preventDefault();
     }
+/*    else if (key === "ArrowUp" && this.state.inputHistoryB.length > 0) {
+      this.state.inputHistoryF.push(this.state.inputValue)
+      const newInput = this.state.inputHistoryB.pop()!
+      this.setState({
+        inputHistoryF: this.state.inputHistoryF,
+        inputValue: newInput,
+        inputHistoryB: this.state.inputHistoryB
+      })
+    }
+    else if (key === "ArrowDown") {
+
+    }*/
     this.setState({inputValue: val})
   }
 
@@ -84,20 +96,21 @@ class Terminal extends React.Component<{},terminalState> {
   processSubmission(evt: React.FormEvent<HTMLFormElement>) {
     this.state.consoleLog.push(
       (
-        <div>
-          <b>me@youcefs21.github.io:~$ </b>
+        <div key={"prompt" + this.state.consoleLog.length.toString()}>
+          <b>{this.state.prefix}</b>
           <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
         </div>
       )
     )
     const args = this.state.inputValue.split(" ")
-    let commandResponse = <CommandNotFound command={args[0]}/>
+    const key = "response" + this.state.consoleLog.length.toString()
+    let commandResponse = <CommandNotFound command={args[0]} key={key}/>
     switch (args[0]) {
       case "help":
-        commandResponse = <HelpCommand/>
+        commandResponse = <HelpCommand key={key}/>
         break
       case "banner":
-        commandResponse = <BannerJSX/>
+        commandResponse = <BannerJSX key={key}/>
     }
 
     this.state.consoleLog.push(commandResponse)
