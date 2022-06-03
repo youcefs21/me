@@ -7,6 +7,7 @@
     margin: 10vh auto 5vh;
     overflow-y: auto;
     cursor: text;
+    z-index: 1000;
 }
 
 .terminal-input {
@@ -22,13 +23,31 @@
     font-size: medium;
 }
 
+p {
+    animation: typingAnimation 0.5s steps(30, end);
+    overflow: hidden;
+}
+@keyframes typingAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
 .command {
     color: #73ABAD;
     text-shadow: 0 0 5px #73ABAD; 
   }
 
-.terminal-prefix {
+.green-terminal-text {
     color: #519975;
+    white-space: pre;
+}
+
+.orange-terminal-text {
+    color: #B89076;
 }
 
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import '../styles/terminal.css'
-import {BannerJSX} from "./commands/banner";
+import {BannerJSX, CommandNotFound, HelpCommand} from "./commands";
 
 
 type terminalState = { 
@@ -28,7 +28,7 @@ class Terminal extends React.Component<{},terminalState> {
   render() {
     return (
       <div className={"box"}  onClickCapture={evt => this.focusInput(evt)}>
-        <div className="terminal-text">
+        <div className="green-terminal-text terminal-text">
           {
             // I have no idea why I need map for this to work by
             // ¯\_(ツ)_/¯
@@ -38,7 +38,9 @@ class Terminal extends React.Component<{},terminalState> {
               }
             )
           }
-          <b className="terminal-prefix">{this.state.prefix}</b>{this.state.inputValue}<b className="terminal-cursor">█</b>
+          <b>{this.state.prefix}</b>
+          <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
+          <b className="terminal-cursor">█</b>
         </div>
         <form onSubmit={evt => this.processSubmission(evt)}>
           <input
@@ -82,17 +84,24 @@ class Terminal extends React.Component<{},terminalState> {
   processSubmission(evt: React.FormEvent<HTMLFormElement>) {
     this.state.consoleLog.push(
       (
-        <p>
-          <b className="terminal-prefix">me@youcefs21.github.io:~$ </b> {this.state.inputValue}
-        </p>
-      ),
-      (
-        <p>
-          <span className="command">'{this.state.inputValue.split(" ")[0]}'</span> command not found
-        </p>
+        <div>
+          <b>me@youcefs21.github.io:~$ </b>
+          <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
+        </div>
       )
     )
-    
+    const args = this.state.inputValue.split(" ")
+    let commandResponse = <CommandNotFound command={args[0]}/>
+    switch (args[0]) {
+      case "help":
+        commandResponse = <HelpCommand/>
+        break
+      case "banner":
+        commandResponse = <BannerJSX/>
+    }
+
+    this.state.consoleLog.push(commandResponse)
+
     this.setState({
       inputValue: "",
       consoleLog: this.state.consoleLog
