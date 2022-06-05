@@ -1,5 +1,16 @@
 import * as React from "react";
 
+export const CommandResponse = ({args}:{args: string[]}) => {
+  switch (args[0]) {
+    case "help":
+      return <HelpCommand/>
+    case "banner":
+      return <BannerJSX/>
+  }
+  return <CommandNotFound command={args[0]}/>
+}
+
+
 export const BannerJSX = () => {
   return (
     <div>
@@ -25,7 +36,7 @@ export const BannerJSX = () => {
   )
 }
 
-export const HelpCommand = () => {
+const HelpCommand = () => {
   return (
       <p className={"orange-terminal-text"}>
         it's looking very deserted around here... <br/> <br/>
@@ -34,7 +45,7 @@ export const HelpCommand = () => {
   )
 }
 
-export const CommandNotFound = ({command}: {command: string}) => {
+const CommandNotFound = ({command}: {command: string}) => {
   return (
     <p>
       <span className="command">'{command}'</span> command not found

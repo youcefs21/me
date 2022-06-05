@@ -1,6 +1,6 @@
 import * as React from "react";
 import '../styles/terminal.css'
-import {BannerJSX, CommandNotFound, HelpCommand} from "./commands";
+import {CommandResponse, BannerJSX} from "./commands";
 
 
 type terminalState = { 
@@ -31,11 +31,8 @@ class Terminal extends React.Component<{},terminalState> {
 
   render() {
     return (
-      <div className={"box"}  onClickCapture={evt => this.focusInput(evt)}>
-        <div className="green-terminal-text terminal-text">
+      <div className={"terminal-box"}  onClickCapture={evt => this.focusInput(evt)}>
           {
-            // I have no idea why I need map for this to work by
-            // ¯\_(ツ)_/¯
             this.state.consoleLog.map(
               function (value) {
                 return value;
@@ -45,7 +42,6 @@ class Terminal extends React.Component<{},terminalState> {
           <b>{this.state.prefix}</b>
           <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
           <b className="terminal-cursor">█</b>
-        </div>
         <form onSubmit={evt => this.processSubmission(evt)}>
           <input
             value={""}
@@ -107,17 +103,10 @@ class Terminal extends React.Component<{},terminalState> {
     )
     const args = this.state.inputValue.split(" ")
     const key = "response" + this.state.consoleLog.length.toString()
-    let commandResponse = <CommandNotFound command={args[0]} key={key}/>
-    switch (args[0]) {
-      case "help":
-        commandResponse = <HelpCommand key={key}/>
-        break
-      case "banner":
-        commandResponse = <BannerJSX key={key}/>
+    if (this.state.inputValue != ""){
+      this.state.consoleLog.push(<CommandResponse args={args} key={key}/>)
+      this.state.commandHistory.push(this.state.inputValue)
     }
-
-    this.state.consoleLog.push(commandResponse)
-    this.state.commandHistory.push(this.state.inputValue)
 
     this.setState({
       inputValue: "",

@@ -1,4 +1,4 @@
-.box {
+.terminal-box {
     background-color: black;
     width: 90vw;
     height: 80vh;
@@ -8,6 +8,10 @@
     overflow-y: auto;
     cursor: text;
     z-index: 1000;
+    padding: 40px;
+    font-size: medium;
+    color: #519975;
+    white-space: pre;
 }
 
 .terminal-input {
@@ -18,16 +22,11 @@
     outline: none;
 }
 
-.terminal-text {
-    padding: 40px;
-    font-size: medium;
-}
-
-p {
-    animation: typingAnimation 0.5s steps(30, end);
+.terminal-box p {
+    animation: typing-animation 0.5s steps(30, end);
     overflow: hidden;
 }
-@keyframes typingAnimation {
+@keyframes typing-animation {
     from {
         width: 0;
     }
@@ -40,11 +39,6 @@ p {
     color: #73ABAD;
     text-shadow: 0 0 5px #73ABAD; 
   }
-
-.green-terminal-text {
-    color: #519975;
-    white-space: pre;
-}
 
 .orange-terminal-text {
     color: #B89076;
