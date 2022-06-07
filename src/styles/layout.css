@@ -1,18 +1,4 @@
-.container {
-    color: #FFFFFF;
-}
 
-.noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    opacity: .07;
-    z-index: 600;
-    pointer-events: none;
-    background: url(../images/background.gif);
-}
 
 .front-page {
     display: flex;
@@ -24,24 +10,22 @@
     margin: auto;
 }
 
-
-.nav-bar {
-    padding: 10px 30px;
-    position: sticky;
-    top: 0;
-    background-color: #21212F;
-    z-index: 700;
-    margin: -31px auto;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0 8px 4px 0 rgba(0,0,0,.2);
+.backdrop {
+    width: 200vmax;
+    height: 200vmax;
+    position: absolute;
+    bottom: -100px;
+    transform-origin: bottom right;
+    transform:  translateX(-100vmax) rotate(45deg);
+    border-radius: 200px;
+    z-index: 0;
 }
 
 .heading {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 64px;
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 40vh;
 }
 
 .sub-heading {

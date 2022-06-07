@@ -1,17 +1,25 @@
 .terminal-box {
-    background-color: black;
     width: 90vw;
     height: 80vh;
-    position: relative;
     border-radius: 25px;
-    margin: 10vh auto 5vh;
+    margin: 40vh auto 5vh;
     overflow-y: auto;
     cursor: text;
     z-index: 1000;
     padding: 40px;
     font-size: medium;
-    color: #519975;
     white-space: pre;
+    animation: 5s ease-in 0s infinite rgb-animation;
+}
+
+#dark .terminal-box {
+    background-color: black;
+    color: #519975;
+}
+
+#light .terminal-box {
+    background-color: white;
+    color: #3C83F4;
 }
 
 .terminal-input {
@@ -38,7 +46,12 @@
 .command {
     color: #73ABAD;
     text-shadow: 0 0 5px #73ABAD; 
-  }
+}
+
+#light .command {
+    color: orange;
+    text-shadow: 0 0 2px orange;
+}
 
 .orange-terminal-text {
     color: #B89076;

@@ -3,8 +3,33 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu Mono', monospace;
+    z-index: 10;
 }
 
-body {
-    background-color: #21212F;
+html body {
+    overflow-x: hidden;
+}
+
+#light .main-text-color {
+    color: #3C83F4;
+}
+#light .arrow-color {
+    fill: #3C83F4;
+}
+#light .background-color0 {
+    background-color: white;
+}
+
+#light .background-color1 {
+    background-color: #F0EEFF;
+}
+
+#dark .main-text-color {
+    color: white;
+}
+#dark .arrow-color {
+    fill: white;
+}
+#dark .background-color1 {
+    background-color: #090B24;
 }

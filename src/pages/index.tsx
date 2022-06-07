@@ -6,7 +6,7 @@ import Terminal from '../components/terminal';
 
 const IndexPage = () => {
   return (
-      <Layout pageTitle={"Youcef"} pageDesc={"I am a software engineer who loves learning new things and exploring new technologies"}>
+      <Layout pageTitle={"Youcef"} pageDesc={"I am a software engineer who loves learning new things and exploring new technologies"} theme={"light"}>
         <div>
           <Helmet>
             <title>Youcef</title>

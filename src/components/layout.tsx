@@ -7,26 +7,26 @@ import Arrows from "./arrows";
 type LayoutProps = {
   pageTitle: string,
   pageDesc: string,
-  children: JSX.Element
+  children: JSX.Element,
+  theme: string
 }
 
-const Layout = ({ pageTitle, pageDesc, children }: LayoutProps) => {
+const Layout = ({ pageTitle, pageDesc, children, theme }: LayoutProps) => {
   return (
-    <div className={"container"}>
-      <div className={"noise"}/>
+    <div className={"container"} id={theme}>
       <title>{pageTitle}</title>
-      <NavBar className={"nav-bar"}/>
-      <main>
+      <NavBar/>
+      <main className={"main background-color1"}>
         <div className={"front-page"}>
-          <div></div>
+          <div className={"backdrop background-color0"}/>
           <div>
-            <h1 className={"heading"}>{pageTitle}</h1>
-            <h2 className={"sub-heading"}>{pageDesc}</h2>
+            <h1 className={"heading main-text-color"}>{pageTitle}</h1>
+            <h2 className={"sub-heading main-text-color"}>{pageDesc}</h2>
           </div>
           <Arrows/>
         </div>
         {children}
-        <div id={'pageBottom'}></div>
+        <div id={'pageBottom'} style={{padding:"1px"}}></div>
       </main>
     </div>
   )

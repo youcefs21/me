@@ -1,30 +1,24 @@
 import {Link} from "gatsby";
-import {StaticImage} from "gatsby-plugin-image";
 import * as React from "react";
 import '../styles/navigation.css'
 
 const NavItem = ({to, children}: { to: string, children: string | JSX.Element }) => {
   return (
     <li className={"nav-link-item"}>
-      <Link to={to} className={"nav-link-text"}>
+      <Link to={to} className={"nav-link-text main-text-color"}>
         {children}
       </Link>
     </li>
   )
 }
 
-const NavBar = ({className}: {className: string}) => {
+const NavBar = () => {
   return (
-    <nav className={className}>
-    <Link to={"/"} className={"nav-link-text"}>
-        <div className="crop-img">
-          <StaticImage
-            src={"../images/myIcon.png"}
-            alt={"Profile Picture"}
-            width={42}
-            height={42}
-          />
-        </div>
+    <nav className={"nav-bar"}>
+      <Link to={"/"} className={"nav-logo-text main-text-color"} >
+      <p>
+        { "{Y}" }
+      </p>
       </Link>
       <ul className={"nav-links"}>
         <NavItem to={"/"}>Home</NavItem>
