@@ -5,6 +5,10 @@
     font-family: 'Ubuntu Mono', monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html body {
     overflow-x: hidden;
 }

@@ -8,7 +8,7 @@ import Background from "../components/background";
 
 const FrontPage = ({pageTitle, pageDesc}: {pageTitle: string, pageDesc: string}) => {
   return (
-    <div className={"front-page"}>
+    <div id="Home" className={"front-page"}>
       <div>
         <h1 className={"heading main-text-color"}>{pageTitle}</h1>
         <h2 className={"sub-heading main-text-color"}>{pageDesc}</h2>
@@ -20,7 +20,7 @@ const FrontPage = ({pageTitle, pageDesc}: {pageTitle: string, pageDesc: string})
 
 const IntroPage = () => {
   return (
-    <div>
+    <div id={"Intro"}>
       <FrontPage pageTitle={"Intro Page"} pageDesc={"cool intro"}/>
     </div>
   )
@@ -28,7 +28,7 @@ const IntroPage = () => {
 
 const FeaturesPage = () => {
   return (
-    <div>
+    <div id={"Features"}>
       <FrontPage pageTitle={"Features Page"} pageDesc={"look at all these features"}/>
     </div>
   )

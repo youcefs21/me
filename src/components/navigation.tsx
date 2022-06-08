@@ -5,9 +5,9 @@ import '../styles/navigation.css'
 const NavItem = ({to, children}: { to: string, children: string | JSX.Element }) => {
   return (
     <li className={"nav-link-item"}>
-      <Link to={to} className={"nav-link-text main-text-color"}>
+      <a href={to} className={"nav-link-text main-text-color"}>
         {children}
-      </Link>
+      </a>
     </li>
   )
 }
@@ -21,8 +21,10 @@ const NavBar = () => {
       </p>
       </Link>
       <ul className={"nav-links"}>
-        <NavItem to={"/"}>Home</NavItem>
-        {/*<NavItem to={"/contact"}>Contact</NavItem>*/}
+        <NavItem to={"#Home"}>Home</NavItem>
+        <NavItem to={"#Intro"}>Intro</NavItem>
+        <NavItem to={"#Features"}>Features</NavItem>
+        <NavItem to={"#terminal"}>Terminal</NavItem>
       </ul>
     </nav>
   )

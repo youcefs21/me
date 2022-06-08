@@ -31,7 +31,7 @@ class Terminal extends React.Component<{},terminalState> {
 
   render() {
     return (
-      <div className={"terminal-box"}  onClickCapture={evt => this.focusInput(evt)}>
+      <div id="terminal" className={"terminal-box"} onClickCapture={evt => this.focusInput(evt)}>
           {
             this.state.consoleLog.map(
               function (value) {
