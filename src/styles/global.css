@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu Mono', monospace;
-    z-index: 10;
 }
 
 html body {
@@ -16,11 +15,19 @@ html body {
 #light .arrow-color {
     fill: #3C83F4;
 }
-#light .background-color0 {
+#light .background-color-1 {
     background-color: white;
 }
+#light .background-color-2 {
+    background-color: #F1F1FF;
+}
 
-#light .background-color1 {
+#light .background-color-3 {
+    background-color: #D9DDFF;
+}
+
+
+#light .main-background-color {
     background-color: #F0EEFF;
 }
 
@@ -30,6 +37,11 @@ html body {
 #dark .arrow-color {
     fill: white;
 }
-#dark .background-color1 {
+#dark .background-color-1 {
     background-color: #090B24;
 }
+
+#dark .main-background-color {
+    background-color: #27272D;
+}
+
