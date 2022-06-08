@@ -10,22 +10,11 @@
     margin: auto;
 }
 
-.backdrop {
-    width: 200vmax;
-    height: 200vmax;
-    position: absolute;
-    bottom: -100px;
-    transform-origin: bottom right;
-    transform:  translateX(-100vmax) rotate(45deg);
-    border-radius: 200px;
-    z-index: 0;
-}
-
 .heading {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 64px;
     text-align: center;
-    margin-top: 40vh;
+    margin-top: 30vh;
 }
 
 .sub-heading {

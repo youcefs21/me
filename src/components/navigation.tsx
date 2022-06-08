@@ -22,7 +22,7 @@ const NavBar = () => {
       </Link>
       <ul className={"nav-links"}>
         <NavItem to={"/"}>Home</NavItem>
-        <NavItem to={"/contact"}>Contact</NavItem>
+        {/*<NavItem to={"/contact"}>Contact</NavItem>*/}
       </ul>
     </nav>
   )

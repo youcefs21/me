@@ -1,0 +1,12 @@
+
+
+.backdrop-curves {
+    filter: url('#fadeCornerRounder');
+    width: 100vw;
+}
+
+.backdrop {
+    /*multiply 50vw with tan(x) to maintain an angle of x*/
+    clip-path: polygon(0 calc(100% - 50vw), 0 0, 100% 0, 100% calc(100% - 50vw), 50% 100%);
+    padding-bottom: 200px;
+}
