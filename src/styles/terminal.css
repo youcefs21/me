@@ -2,7 +2,7 @@
     width: 90vw;
     height: 80vh;
     border-radius: 25px;
-    margin: 10vh auto 5vh;
+    margin: 10vh auto 0;
     overflow-y: auto;
     cursor: text;
     z-index: 1000;
@@ -65,5 +65,20 @@
 @keyframes blinker {
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes rgb-animation {
+    0% {
+        box-shadow: 0 5px 50px 0 rgba(255,0,0,.5);
+    }
+    33% {
+        box-shadow: 0 5px 50px 0 rgba(0,255,0,.5);
+    }
+    66% {
+        box-shadow: 0 5px 50px 0 rgba(0,0,255,.5);
+    }
+    100% {
+        box-shadow: 0 5px 50px 0 rgba(255,0,0,.5);
     }
 }

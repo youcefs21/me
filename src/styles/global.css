@@ -44,6 +44,13 @@ html body {
 #dark .background-color-1 {
     background-color: #090B24;
 }
+#dark .background-color-2 {
+    background-color: #191930;
+}
+
+#dark .background-color-3 {
+    background-color: #1E202E;
+}
 
 #dark .main-background-color {
     background-color: #27272D;

@@ -1,6 +1,8 @@
 import {Link} from "gatsby";
 import * as React from "react";
 import '../styles/navigation.css'
+import Switch from "react-switch";
+import {ThemeContext} from "../Contexts/ThemeContext";
 
 const NavItem = ({to, children}: { to: string, children: string | JSX.Element }) => {
   return (
@@ -12,13 +14,42 @@ const NavItem = ({to, children}: { to: string, children: string | JSX.Element })
   )
 }
 
+class ThemeSwitch extends React.Component<any, any> {
+  static contextType = ThemeContext;
+
+  constructor(props: any) {
+    super(props);
+    this.state = { checked: true };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(checked: boolean) {
+    const {setTheme} = this.context;
+    setTheme(
+      checked ? "light" : "dark"
+    )
+
+    this.setState({ checked });
+  }
+
+  render() {
+    return (
+      <label>
+        <Switch onChange={this.handleChange}
+                checked={this.state.checked}
+        />
+      </label>
+    );
+  }
+}
+
 const NavBar = () => {
   return (
     <nav className={"nav-bar"}>
       <Link to={"/"} className={"nav-logo-text main-text-color"} >
-      <p>
-        { "{Y}" }
-      </p>
+        <p>
+          { "{Y}" }
+        </p>
       </Link>
       <ul className={"nav-links"}>
         <NavItem to={"#Home"}>Home</NavItem>
@@ -26,6 +57,7 @@ const NavBar = () => {
         <NavItem to={"#Features"}>Features</NavItem>
         <NavItem to={"#terminal"}>Terminal</NavItem>
       </ul>
+      <ThemeSwitch/>
     </nav>
   )
 }

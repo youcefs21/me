@@ -6,6 +6,11 @@
     gap: 1rem;
 }
 
+.nav-link-text{
+    font-size: 14px;
+
+}
+
 .nav-logo-text {
     font-size: 25px;
     font-family: Roboto Mono, monospace;
@@ -27,19 +32,12 @@
 
 #dark .nav-bar {
     box-shadow: 0 5px 20px 0 rgba(100,100,100,.5);
+    background-color: #090B24;
 }
 
-@keyframes rgb-animation {
-    0% {
-        box-shadow: 0 5px 50px 0 rgba(255,0,0,.5);
-    }
-    33% {
-        box-shadow: 0 5px 50px 0 rgba(0,255,0,.5);
-    }
-    66% {
-        box-shadow: 0 5px 50px 0 rgba(0,0,255,.5);
-    }
-    100% {
-        box-shadow: 0 5px 50px 0 rgba(255,0,0,.5);
+
+@media (max-height: 437px) {
+    .nav-bar {
+        display: none;
     }
 }

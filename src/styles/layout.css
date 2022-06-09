@@ -1,4 +1,7 @@
 
+.main {
+    padding-bottom: 5vh;
+}
 
 .front-page {
     display: flex;
@@ -30,11 +33,5 @@
     }
     .sub-heading {
         font-size: 20px;
-    }
-}
-
-@media (max-height: 437px) {
-    .nav-bar {
-        display: none;
     }
 }

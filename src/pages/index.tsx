@@ -37,7 +37,7 @@ const FeaturesPage = () => {
 
 const IndexPage = () => {
   return (
-      <Layout pageTitle={"Youcef"} theme={"light"}>
+      <Layout pageTitle={"Youcef"}>
         <Helmet>
           <title>Youcef</title>
           <meta name="description" content="A Portfolio Page" color={"#21212F"}/>
