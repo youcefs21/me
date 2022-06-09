@@ -34,11 +34,14 @@ class ThemeSwitch extends React.Component<any, any> {
 
   render() {
     return (
-      <label>
         <Switch onChange={this.handleChange}
                 checked={this.state.checked}
+                onColor={"#FAD6A5"}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                height={20}
+                width={40}
         />
-      </label>
     );
   }
 }
