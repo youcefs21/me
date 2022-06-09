@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 import Terminal from '../components/terminal';
 import Arrows from "../components/arrows";
 import Background from "../components/background";
+import Binary from "../components/binary";
 
 
 const FrontPage = ({pageTitle, pageDesc}: {pageTitle: string, pageDesc: string}) => {
@@ -43,6 +44,7 @@ const IndexPage = () => {
           <meta name="description" content="A Portfolio Page" color={"#21212F"}/>
         </Helmet>
         <Background className={"background-color-1"} zIndex={10}>
+          <Binary/>
           <FrontPage
             pageTitle={"Youcef"}
             pageDesc={"I am a software engineer who loves learning new things and exploring new technologies"}

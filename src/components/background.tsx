@@ -1,7 +1,11 @@
 import * as React from "react";
 import '../styles/background.css'
 
-const Background = ({children, className, zIndex}: {children: JSX.Element, className: string, zIndex: number}) => {
+interface BackgroundType {
+  children: JSX.Element[] | JSX.Element, className: string, zIndex: number
+}
+
+const Background = ({children, className, zIndex}: BackgroundType) => {
   return (
     <div className={"backdrop-parent"} style={{zIndex:zIndex}}>
       <div className={"backdrop " + className}>
