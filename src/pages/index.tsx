@@ -51,13 +51,16 @@ const IndexPage = () => {
           />
         </Background>
         <Background className={"background-color-2"} zIndex={9}>
+          <Binary/>
           <IntroPage/>
         </Background>
         <Background className={"background-color-3"} zIndex={8}>
+          <Binary/>
           <FeaturesPage/>
         </Background>
         <h1 className={"heading main-text-color"}>The Terminal</h1>
         <Terminal/>
+        <Binary/>
       </Layout>
   )
 }

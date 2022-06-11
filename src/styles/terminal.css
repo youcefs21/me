@@ -10,11 +10,12 @@
     font-size: medium;
     white-space: pre;
     animation: 5s ease-in 0s infinite rgb-animation;
+    position: relative;
 }
 
 #dark .terminal-box {
     background-color: black;
-    color: #519975;
+    color: wheat;
 }
 
 #light .terminal-box {
@@ -43,18 +44,19 @@
     }
 }
 
-.command {
+#dark .command {
     color: #73ABAD;
-    text-shadow: 0 0 5px #73ABAD; 
+    text-shadow: 0 0 5px #73ABAD;
 }
 
 #light .command {
-    color: orange;
-    text-shadow: 0 0 2px orange;
+    --comand-color: #73ABAD;
+    color: var(--comand-color);
+    text-shadow: 0 0 2px var(--comand-color);
 }
 
 .orange-terminal-text {
-    color: #B89076;
+    color: mediumpurple;
 }
 
 
