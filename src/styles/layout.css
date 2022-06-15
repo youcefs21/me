@@ -3,7 +3,7 @@
     padding-bottom: 5vh;
 }
 
-.front-page {
+.page {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,7 +12,6 @@
     max-width: 750px;
     margin: auto;
     position: relative;
-    z-index: 50;
 }
 
 .heading {

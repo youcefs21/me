@@ -7,31 +7,51 @@ import Background from "../components/background";
 import Binary from "../components/binary";
 
 
-const FrontPage = ({pageTitle, pageDesc}: {pageTitle: string, pageDesc: string}) => {
+const FrontPage = () => {
   return (
-    <div id="Home" className={"front-page"}>
-      <div>
-        <h1 className={"heading main-text-color"}>{pageTitle}</h1>
-        <h2 className={"sub-heading main-text-color"}>{pageDesc}</h2>
+    <Background className={"background-color-1"} zIndex={10}>
+      <div id="Home" className={"page"}>
+        <div>
+          <h1 className={"heading main-text-color"}>
+            Youcef
+          </h1>
+          <h2 className={"sub-heading main-text-color"}>
+            I am a software engineer who loves learning new things and exploring new technologies
+          </h2>
+        </div>
+        <Arrows/>
+        <Binary/>
       </div>
-      <Arrows/>
-    </div>
+    </Background>
   )
 }
 
 const IntroPage = () => {
   return (
-    <div id={"Intro"}>
-      <FrontPage pageTitle={"Intro Page"} pageDesc={"cool intro"}/>
-    </div>
+    <Background className={"background-color-2"} zIndex={9}>
+      <div id={"Intro"} className={'page'}>
+        <p>test</p>
+      </div>
+    </Background>
   )
 }
 
 const FeaturesPage = () => {
   return (
-    <div id={"Features"}>
-      <FrontPage pageTitle={"Features Page"} pageDesc={"look at all these features"}/>
-    </div>
+    <Background className={"background-color-3"} zIndex={8}>
+      <div id={"Features"} className={'page'}>
+        <p>test</p>
+      </div>
+    </Background>
+  )
+}
+
+const TerminalPage = () => {
+  return (
+    <>
+      <h1 className={"heading main-text-color"}>The Terminal</h1>
+      <Terminal/>
+    </>
   )
 }
 
@@ -43,24 +63,10 @@ const IndexPage = () => {
           <title>Youcef</title>
           <meta name="description" content="A Portfolio Page" color={"#21212F"}/>
         </Helmet>
-        <Background className={"background-color-1"} zIndex={10}>
-          <Binary/>
-          <FrontPage
-            pageTitle={"Youcef"}
-            pageDesc={"I am a software engineer who loves learning new things and exploring new technologies"}
-          />
-        </Background>
-        <Background className={"background-color-2"} zIndex={9}>
-          <Binary/>
-          <IntroPage/>
-        </Background>
-        <Background className={"background-color-3"} zIndex={8}>
-          <Binary/>
-          <FeaturesPage/>
-        </Background>
-        <h1 className={"heading main-text-color"}>The Terminal</h1>
-        <Terminal/>
-        <Binary/>
+        <FrontPage/>
+        <IntroPage/>
+        <FeaturesPage/>
+        <TerminalPage/>
       </Layout>
   )
 }

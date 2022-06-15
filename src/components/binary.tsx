@@ -4,7 +4,7 @@ import '../styles/binary.css'
 const Binary = () => {
   let bin = []
 
-  const count = 10
+  const count = 200
   const minTime = 5
   const timeMlt = 5
   const maxTime = minTime+timeMlt
