@@ -16,6 +16,9 @@ html body {
 #light .main-text-color {
     color: #3C83F4;
 }
+.secondary-text-color {
+    color: #B89076;
+}
 #light .arrow-color {
     fill: #3C83F4;
 }

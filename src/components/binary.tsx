@@ -4,7 +4,7 @@ import '../styles/binary.css'
 const Binary = () => {
   let bin = []
 
-  const count = 200
+  const count = 20
   const minTime = 5
   const timeMlt = 5
   const maxTime = minTime+timeMlt
@@ -17,7 +17,7 @@ const Binary = () => {
   }
 
     bin.push(
-      <p className={"binary-number"} style={binaryStyle}>
+      <p className={"binary-number"} style={binaryStyle} key={"binary" + i.toString()}>
         01100011 01100001 01101110
       </p>
     )

@@ -5,6 +5,7 @@ import Terminal from '../components/terminal';
 import Arrows from "../components/arrows";
 import Background from "../components/background";
 import Binary from "../components/binary";
+import {StaticImage} from "gatsby-plugin-image";
 
 
 const FrontPage = () => {
@@ -30,7 +31,14 @@ const IntroPage = () => {
   return (
     <Background className={"background-color-2"} zIndex={9}>
       <div id={"Intro"} className={'page'}>
-        <p>test</p>
+        <h2 className={"main-text-color intro-heading"}>
+          An Interactive Terminal Based Portfolio Experience
+        </h2>
+        <p className={"description-text secondary-text-color"}>
+          At the bottom of this page, you’ll find a powerful custom built command line interface just like this one
+        </p>
+        <StaticImage src={"../images/white.png"} alt={"white space"} className={"main-demo"} imgClassName={"main-demo-img"}/>
+        <Arrows/>
       </div>
     </Background>
   )
