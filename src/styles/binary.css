@@ -5,7 +5,6 @@
     color: greenyellow;
     top: -50vh;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5));
-    left: 10vw;
 }
 
 .binary-parent {

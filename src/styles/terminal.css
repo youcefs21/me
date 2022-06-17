@@ -1,11 +1,10 @@
 .terminal-box {
-    width: 90vw;
-    height: 80vh;
+    width: calc(90vw - 80px);
+    height: 75vh;
     border-radius: 25px;
     margin: 10vh auto 0;
     overflow-y: auto;
     cursor: text;
-    z-index: 1000;
     padding: 40px;
     font-size: medium;
     white-space: pre;

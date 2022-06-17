@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     font-family: 'Ubuntu Mono', monospace;
 }
 
@@ -9,9 +8,6 @@ html {
     scroll-behavior: smooth;
 }
 
-html body {
-    overflow-x: hidden;
-}
 
 #light .main-text-color {
     color: #3C83F4;

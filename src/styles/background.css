@@ -4,8 +4,8 @@
 }
 
 .backdrop {
-    margin-top: -100vh;
-    padding-top: 100vh;
+    margin-top: -120vh;
+    padding-top: 120vh;
     /*multiply 50vw with tan(x) to maintain an angle of x*/
     clip-path: polygon(0 calc(100% - 50vw*0.57735), 0 0, 100% 0, 100% calc(100% - 50vw*0.57735), 50% 100%);
 }
