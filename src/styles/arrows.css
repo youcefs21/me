@@ -9,14 +9,6 @@
     }
 }
 
-@keyframes fadeIn {
-    0%, 20% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    } 
-}
 
 #BotArrow {
     animation: 2s ease-out 0s 1 comeDown;
@@ -29,7 +21,7 @@
 .arrows-button {
     background: transparent;
     border: none;
-    margin: 100px;
+    margin: 50px;
 }
 
 .arrows-button:hover {

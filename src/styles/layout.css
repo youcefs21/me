@@ -41,13 +41,13 @@
 .description-text {
     font-size: 16px;
     text-align: center;
-    margin: 0 20px;
+    margin: 25px 20px 10px;
 }
 
 .main-demo {
     border-radius: 20px;
-    margin: 20px;
     max-width: 750px;
+    margin: 20px 20px 100px;
 }
 
 .feature-demo {
@@ -56,10 +56,15 @@
     margin: 0 20px;
 }
 
+#dark .feature-demo-img {
+    content: url("../images/black.png")
+}
+
 .feature-container {
     display: flex;
     flex-wrap: wrap;
-    alignment: center;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
 #dark .main-demo-img {

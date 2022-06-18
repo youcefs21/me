@@ -44,29 +44,28 @@ const IntroPage = () => {
   )
 }
 
+const Feature = ({heading, className}: {heading: string, className:string}) => {
+  return (
+    <div>
+      <p className={"description-text main-text-color"}>
+        {heading}
+      </p>
+      <StaticImage src={"../images/white.png"}
+                   alt={heading}
+                   className={"feature-demo"}
+                   imgClassName={className}
+      />
+    </div>
+  )
+}
+
 const Features = () => {
   return (
     <div className={"feature-container"}>
-        <div>
-        <p className={"description-text main-text-color"}>
-          Smart Auto Complete
-        </p>
-        <StaticImage src={"../images/white.png"}
-                     alt={"white space"}
-                     className={"feature-demo"}
-                     imgClassName={"feature-demo-img"}
-        />
-      </div>
-      <div>
-        <p className={"description-text main-text-color"}>
-          Powerful Query Capabilities
-        </p>
-        <StaticImage src={"../images/white.png"}
-                     alt={"white space"}
-                     className={"feature-demo"}
-                     imgClassName={"feature-demo-img"}
-        />
-      </div>
+      <Feature heading='Smart Auto Complete' className='feature-demo-img'/>
+      <Feature heading='Powerful Query' className='feature-demo-img'/>
+      <Feature heading='Command History' className='feature-demo-img'/>
+      <Feature heading='Elegant Shortcuts' className='feature-demo-img'/>
     </div>
   )
 }
@@ -79,6 +78,10 @@ const FeaturesPage = () => {
           Features
         </h2>
         <Features/>
+        <p className={"secondary-text-color"} style={{marginBottom: 100}}>
+          and many secrets to discover...
+        </p>
+        <Arrows/>
       </div>
     </Background>
   )
