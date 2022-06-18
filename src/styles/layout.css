@@ -8,9 +8,12 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    max-width: 750px;
     margin: auto;
     position: relative;
+}
+
+#Home {
+    max-width: 750px;
 }
 
 .heading {
@@ -31,23 +34,32 @@
     font-weight: 400;
     font-size: 30px;
     text-align: center;
-    margin: 50px;
+    margin: 80px 50px 20px;
+    max-width: 700px;
 }
 
 .description-text {
     font-size: 16px;
     text-align: center;
-    margin: 0 -50px 40px;
-}
-
-@media (max-width: 750px) {
-    .description-text {
-        margin: 0 20px 40px;
-    }
+    margin: 0 20px;
 }
 
 .main-demo {
     border-radius: 20px;
+    margin: 20px;
+    max-width: 750px;
+}
+
+.feature-demo {
+    border-radius: 30px;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    alignment: center;
 }
 
 #dark .main-demo-img {

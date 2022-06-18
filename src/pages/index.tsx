@@ -44,11 +44,41 @@ const IntroPage = () => {
   )
 }
 
+const Features = () => {
+  return (
+    <div className={"feature-container"}>
+        <div>
+        <p className={"description-text main-text-color"}>
+          Smart Auto Complete
+        </p>
+        <StaticImage src={"../images/white.png"}
+                     alt={"white space"}
+                     className={"feature-demo"}
+                     imgClassName={"feature-demo-img"}
+        />
+      </div>
+      <div>
+        <p className={"description-text main-text-color"}>
+          Powerful Query Capabilities
+        </p>
+        <StaticImage src={"../images/white.png"}
+                     alt={"white space"}
+                     className={"feature-demo"}
+                     imgClassName={"feature-demo-img"}
+        />
+      </div>
+    </div>
+  )
+}
+
 const FeaturesPage = () => {
   return (
     <Background className={"background-color-3"} zIndex={8}>
       <div id={"Features"} className={'page'}>
-        <p>test</p>
+        <h2 className={"main-text-color intro-heading"}>
+          Features
+        </h2>
+        <Features/>
       </div>
     </Background>
   )
@@ -62,7 +92,6 @@ const TerminalPage = () => {
     </>
   )
 }
-
 
 const IndexPage = () => {
   return (
