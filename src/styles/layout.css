@@ -52,12 +52,8 @@
 
 .feature-demo {
     border-radius: 30px;
-    max-width: 500px;
+    max-width: 430px;
     margin: 0 20px;
-}
-
-#dark .feature-demo-img {
-    content: url("../images/black.png")
 }
 
 .feature-container {
@@ -67,8 +63,20 @@
     margin-bottom: 100px;
 }
 
+#light .main-demo-img {
+    content: url('../images/light.gif');
+}
+
 #dark .main-demo-img {
-    content: url("../images/black.png")
+    content: url("../images/dark.gif")
+}
+
+#light .feature-demo-img {
+    content: url("../images/light.gif");
+}
+
+#dark .feature-demo-img {
+    content: url("../images/dark.gif")
 }
 
 @media (max-height: 479px) {

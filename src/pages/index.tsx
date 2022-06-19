@@ -61,7 +61,7 @@ const Feature = ({heading, className}: {heading: string, className:string}) => {
 
 const Features = () => {
   return (
-    <div className={"feature-container"}>
+    <div className={"feature-container"} style={{maxWidth:1700}}>
       <Feature heading='Smart Auto Complete' className='feature-demo-img'/>
       <Feature heading='Powerful Query' className='feature-demo-img'/>
       <Feature heading='Command History' className='feature-demo-img'/>
