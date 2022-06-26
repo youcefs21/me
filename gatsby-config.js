@@ -19,6 +19,13 @@ module.exports = {
         icon: 'src/images/myIcon.png'
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `root`,
+        path: `${__dirname}/src/fakeRoot/`,
+      },
+    },
   ],
   pathPrefix: "/me",
 };

@@ -1,4 +1,5 @@
 import * as React from "react";
+import {graphql, useStaticQuery} from "gatsby";
 
 export const CommandResponse = ({args}:{args: string[]}) => {
   switch (args[0]) {
@@ -6,14 +7,56 @@ export const CommandResponse = ({args}:{args: string[]}) => {
       return <HelpCommand/>
     case "banner":
       return <BannerJSX/>
+    case "ls":
+      return <LSCommand/>
   }
   return <CommandNotFound command={args[0]}/>
 }
 
 
-export const BannerJSX = () => {
+function LSCommand() {
+    interface dataType  {
+      allDirectory: {
+        nodes: {name: string}[]
+      },
+      allFile: {
+        nodes: {name: string}[]
+      }
+    }
+    const data: dataType = useStaticQuery(
+      graphql`
+          {
+              allFile(filter: {relativeDirectory: {eq: ""}}) {
+                  nodes {
+                      name
+                  }
+              }
+              allDirectory(filter: {relativeDirectory: {eq: ""}}) {
+                  nodes {
+                      name
+                  }
+              }
+          }
+      `
+    )
+  const lsContent = data.allDirectory.nodes.concat(data.allFile.nodes)
+  console.log(data)
   return (
     <div>
+      {
+        lsContent.map(
+          function (value) {
+            return <p>{value.name}</p>
+          }
+        )
+      }
+    </div>
+  )
+}
+
+export const BannerJSX = () => {
+  return (
+    <>
       <p>
         {"                                                           "} <br/>
         {" /00     /11                                       /000100 "} <br/>
@@ -32,7 +75,7 @@ export const BannerJSX = () => {
       <p className={"orange-terminal-text"}>
         For a list of available commands, type <span className="command">'help'</span>
       </p>
-    </div>
+    </>
   )
 }
 
