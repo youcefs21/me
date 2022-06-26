@@ -1,123 +1,102 @@
 import * as React from "react";
 import '../styles/terminal.css'
 import {CommandResponse, BannerJSX} from "./commands";
+import {MutableRefObject, useRef, useState} from "react";
 
 
-type terminalState = { 
-  inputValue: string,
-  consoleLog: JSX.Element[],
-  prefix: string,
-  commandHistory: (string | null)[]
-}
 
-class Terminal extends React.Component<{},terminalState> {
+function Terminal() {
 
-  nameInput: HTMLInputElement  | null;
+  const terminalInput = useRef(null);
+  const [inputValue, setInputValue] = useState('');
+  const [consoleLog, setConsoleLog] = useState([<BannerJSX key={"InitialBanner"}/>]);
+  const [prefix, setPrefix] = useState('me@youcefs21.github.io:~$ ');
+  const [commandHistory, setCommandHistory] = useState<(string | null)[]>([null]);  // this null serves as a rotation stop
 
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      inputValue: '',
-      consoleLog: [
-        <BannerJSX key={"InitialBanner"}/>
-      ],
-      prefix: "me@youcefs21.github.io:~$ ",
-      commandHistory: [
-        null
-      ]
-    };
-    this.nameInput = null;
-  }
-
-  render() {
-    return (
-      <div id="terminal" className={"terminal-box"} onClickCapture={evt => this.focusInput(evt)}>
-          {
-            this.state.consoleLog.map(
-              function (value) {
-                return value;
-              }
-            )
-          }
-          <b>{this.state.prefix}</b>
-          <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
-          <b className="terminal-cursor">█</b>
-        <form onSubmit={evt => this.processSubmission(evt)}>
-          <input
-            value={""}
-            className="terminal-input"
-            ref={(input) => { this.nameInput = input; }}
-            onKeyDown={evt => this.processSpecialInput(evt)}
-            onChange={evt => this.processCharInput(evt)}
-          />
-        </form>
-      </div>
-    )
-  }
-
-  focusInput(evt: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    if (this.nameInput != null){
-      this.nameInput.focus();
-    }
-  }
-
-  processSpecialInput(evt: React.KeyboardEvent<HTMLDivElement>) {
+  function processSpecialInput(evt: React.KeyboardEvent<HTMLDivElement>) {
     const key = evt.key;
-    let val = this.state.inputValue;
+    let val = inputValue;
     if (key === "Backspace"){
       val = val.slice(0, -1);
     }
     else if (key === "l" && evt.ctrlKey){
-      this.setState({
-        consoleLog: []
-      })
+      setConsoleLog([])
       evt.preventDefault();
     }
-    else if (key === "ArrowUp" && this.state.commandHistory.at(-1) != null) {
-      this.state.commandHistory.unshift(val);
-      val = this.state.commandHistory.pop()!;
+    else if (key === "ArrowUp" && commandHistory.at(-1) != null) {
+      commandHistory.unshift(val);
+      val = commandHistory.pop()!;
     }
-    else if (key === "ArrowDown" && this.state.commandHistory[0] != null && val!='') {
-      this.state.commandHistory.push(val);
-      val = this.state.commandHistory.shift()!;
+    else if (key === "ArrowDown" && commandHistory[0] != null && val!='') {
+      commandHistory.push(val);
+      val = commandHistory.shift()!;
     }
-    this.setState({
-      inputValue: val,
-      commandHistory: this.state.commandHistory
-    });
+    setInputValue(val)
+    setCommandHistory(commandHistory)
   }
 
-  processCharInput(evt: React.ChangeEvent<HTMLInputElement>) {
+  function processCharInput(evt: React.ChangeEvent<HTMLInputElement>) {
     const val = evt.target.value;
-    this.setState({inputValue: this.state.inputValue + val})
+    setInputValue(inputValue + val)
   }
 
-  processSubmission(evt: React.FormEvent<HTMLFormElement>) {
-    this.state.consoleLog.push(
+  function processSubmission(evt: React.FormEvent<HTMLFormElement>) {
+    consoleLog.push(
       (
-        <div key={"prompt" + this.state.consoleLog.length.toString()}>
-          <b>{this.state.prefix}</b>
-          <span className={"orange-terminal-text"}>{this.state.inputValue}</span>
+        <div key={"prompt" + consoleLog.length.toString()}>
+          <b>{prefix}</b>
+          <span className={"orange-terminal-text"}>{inputValue}</span>
         </div>
       )
     )
-    const args = this.state.inputValue.split(" ")
-    const key = "response" + this.state.consoleLog.length.toString()
-    if (this.state.inputValue != ""){
-      this.state.consoleLog.push(<CommandResponse args={args} key={key}/>)
-      this.state.commandHistory.push(this.state.inputValue)
+    const args = inputValue.split(" ")
+    const key = "response" + consoleLog.length.toString()
+    if (inputValue != ""){
+      consoleLog.push(<CommandResponse args={args} key={key}/>)
+      commandHistory.push(inputValue)
     }
 
-    this.setState({
-      inputValue: "",
-      consoleLog: this.state.consoleLog,
-      commandHistory: this.state.commandHistory
-    });
+    setInputValue("")
+    setConsoleLog(consoleLog)
+    setCommandHistory(commandHistory)
+
     evt.preventDefault();
   }
 
 
+  return (
+    <div id="terminal" className={"terminal-box"} onClickCapture={evt => focusInput(evt, terminalInput)}>
+      {
+        consoleLog.map(
+          function (value) {
+            return value;
+          }
+        )
+      }
+      <b>{prefix}</b>
+      <span className={"orange-terminal-text"}>{inputValue}</span>
+      <b className="terminal-cursor">█</b>
+      <form onSubmit={evt => processSubmission(evt)}>
+        <input
+          value={""}
+          className="terminal-input"
+          ref={terminalInput}
+          onKeyDown={evt => processSpecialInput(evt)}
+          onChange={evt => processCharInput(evt)}
+        />
+      </form>
+    </div>
+  )
+
 }
+
+
+function focusInput(evt: React.MouseEvent<HTMLDivElement, MouseEvent>, nameInput: MutableRefObject<any>) {
+  if (nameInput.current != null){
+    nameInput.current.focus();
+  }
+}
+
 
 
 export default Terminal
