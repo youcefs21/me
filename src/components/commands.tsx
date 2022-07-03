@@ -1,55 +1,58 @@
 import * as React from "react";
 import {graphql, useStaticQuery} from "gatsby";
 
+interface dataType  {
+  allDirectory: {
+    nodes: {name: string, relativeDirectory: string}[]
+  },
+  allFile: {
+    nodes: {name: string, relativeDirectory: string}[]
+  }
+}
+
 export const CommandResponse = ({args}:{args: string[]}) => {
+  const data: dataType = useStaticQuery(
+    graphql`
+        {
+            allFile {
+                nodes {
+                    name,
+                    relativeDirectory
+                }
+            }
+            allDirectory {
+                nodes {
+                    name,
+                    relativeDirectory
+                }
+            }
+        }
+    `
+  )
   switch (args[0]) {
     case "help":
       return <HelpCommand/>
     case "banner":
       return <BannerJSX/>
     case "ls":
-      return <LSCommand/>
+      return <LSCommand path={args[1]??""} data={data}/>
   }
   return <CommandNotFound command={args[0]}/>
 }
 
 
-function LSCommand() {
-    interface dataType  {
-      allDirectory: {
-        nodes: {name: string}[]
-      },
-      allFile: {
-        nodes: {name: string}[]
-      }
+function LSCommand({path: path, data: data}: {path: string, data: dataType}) {
+  console.log(path)
+  const filterLS = (className: string) => {
+    return (value: {name: string, relativeDirectory: string}) => {
+      if (value.relativeDirectory === path)
+        return <p className={className}>{value.name}</p>
     }
-    const data: dataType = useStaticQuery(
-      graphql`
-          {
-              allFile(filter: {relativeDirectory: {eq: ""}}) {
-                  nodes {
-                      name
-                  }
-              }
-              allDirectory(filter: {relativeDirectory: {eq: ""}}) {
-                  nodes {
-                      name
-                  }
-              }
-          }
-      `
-    )
-  const lsContent = data.allDirectory.nodes.concat(data.allFile.nodes)
-  console.log(data)
+  }
   return (
     <div>
-      {
-        lsContent.map(
-          function (value) {
-            return <p>{value.name}</p>
-          }
-        )
-      }
+      {data.allDirectory.nodes.map(filterLS("directory-text"))}
+      {data.allFile.nodes.map(filterLS("file-text"))}
     </div>
   )
 }
